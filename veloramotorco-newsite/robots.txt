@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /*.dc.html$
+Disallow: /tools/
+Disallow: /i18n/
+Disallow: /reference/
+Disallow: /veloramotorco-design/
+
+Sitemap: https://veloramotorco.com.au/sitemap.xml

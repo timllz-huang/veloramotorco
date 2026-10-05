@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact Velora Motor Co — Wholesale vehicle enquiries</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-600.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-600.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@keyframes loop-horizontally{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Inter",sans-serif;font-size:clamp(.875rem,.75rem + .4vw,1.125rem);line-height:1.5;color:#0c0a01;background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+a:hover{color:inherit}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+
+<section data-screen-label="Navbar" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;min-height:4.5rem;width:100%;background:#fff;padding:0 5%;color:#0c0a01;">
+  <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+    <a href="./" aria-label="Velora Motor Co home"><img src="assets/logo-light.svg" alt="Velora Motor Co logo"></a>
+    <sc-if value="{{ navDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex:1;align-items:center;justify-content:space-between;margin-left:1.5rem;">
+        <nav style="display:flex;align-items:center;">
+          <a href="about-us/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">About us</a>
+          <a href="services/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">Services</a>
+          <a href="services/vehicle-sourcing/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">Sourcing</a>
+          <div onMouseEnter="{{ ddOpen }}" onMouseLeave="{{ ddClose }}">
+            <p role="button" style="display:flex;align-items:center;gap:.5rem;margin:0;padding:1.5rem 1rem;font-size:1rem;white-space:nowrap;cursor:pointer;">More <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/keyboard_arrow_down.svg" alt="" style="width:24px;height:24px;transition:transform .3s;transform:rotate({{ ddRot }}deg);"></p>
+            <sc-if value="{{ dd }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:100%;left:0;width:100%;background:#fff;border-bottom:1px solid rgba(12,10,1,.15);padding:0 5%;">
+                <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 2rem;padding:2rem 0;">
+                  <a href="services/wholesale-distribution/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/vertical_distribute.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Wholesale distribution</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Move stock fast through our dealer network</span></span></a>
+                  <a href="services/transaction-coordination/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/transportation.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Transaction coordination</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">We handle the paperwork and logistics</span></span></a>
+                  <a href="services/vehicle-sourcing/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/auto_stories.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Vehicle sourcing</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Find the right vehicles across Australia</span></span></a>
+                  <a href="contact-us/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/today.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Contact us</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Talk to our team today</span></span></a>
+                </div>
+                <div style="display:flex;justify-content:center;gap:.25rem;padding:.75rem 0;"><span>Looking for a new career?</span><a href="contact-us/" style="text-decoration:underline;">Get in touch</a></div>
+              </div>
+            </sc-if>
+          </div>
+        </nav>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <a href="#newsletter" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(12,10,1,.15);background:transparent;color:#0c0a01;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all .2s;" style-hover="background:rgba(12,10,1,.05);">Sign up</a>
+          <a href="contact-us/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid #1b4f72;background:#1b4f72;color:#fff;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all .2s;" style-hover="background:#153f5b;border-color:#153f5b;color:#fff;">Contact</a>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ navMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:48px;height:48px;margin-right:-8px;background:none;border:0;gap:6px;">
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuShown }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;height:calc(100dvh - 4.5rem);overflow:auto;background:#fff;border-bottom:1px solid rgba(12,10,1,.15);padding:1rem 5% 2rem;display:flex;flex-direction:column;">
+      <a href="about-us/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">About us</a>
+      <a href="services/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Services</a>
+      <a href="services/vehicle-sourcing/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Vehicle sourcing</a>
+      <a href="services/wholesale-distribution/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Wholesale distribution</a>
+      <a href="services/transaction-coordination/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Transaction coordination</a>
+      <a href="contact-us/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Contact us</a>
+      <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;">
+        <a href="#newsletter" onClick="{{ closeMenu }}" style="display:inline-flex;justify-content:center;border:1px solid rgba(12,10,1,.15);font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;">Sign up</a>
+        <a href="contact-us/" style="display:inline-flex;justify-content:center;border:1px solid #1b4f72;background:#1b4f72;color:#fff;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;">Contact</a>
+      </div>
+    </div>
+  </sc-if>
+</section>
+
+<section data-screen-label="Header" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><div><h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.4rem,1.2rem + 3.6vw,4.2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Talk to us about your stock</h1><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">Velora Motor Co works with dealers and traders across Australia. Tell us what you need and we will find it.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="#enquiry" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid #1b4f72;background:#1b4f72;color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:#153f5b;border-color:#153f5b;color:#fff;">Enquire</a><a href="services/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(12,10,1,.15);color:#0c0a01;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(12,10,1,.05);color:#0c0a01;">Services</a></div></div><img src="assets/images/home-hero-header-section.jpg" alt="Talk to us about your stock" style="width:100%;border-radius:8px;object-fit:cover;"></div>
+  </div>
+</section>
+
+<section data-screen-label="Contact Form" id="enquiry" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#f2f2f2;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="max-width:48rem;margin:0 auto;"><div style="text-align:center;margin-bottom:clamp(3rem,2rem + 3vw,5rem);"><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Enquire</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Contact us</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">Fill out the form. We will get back to you.</p></div><sc-if value="{{ cfShowForm }}" hint-placeholder-val="{{ true }}"><form onSubmit="{{ cfSubmit }}" style="display:grid;gap:1.5rem;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1.5rem;"><div><label for="firstName" style="display:block;margin-bottom:.5rem;">First name</label><input type="text" id="firstName" name="firstName" required="required" autocomplete="given-name" style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;"></div><div><label for="lastName" style="display:block;margin-bottom:.5rem;">Last name</label><input type="text" id="lastName" name="lastName" required="required" autocomplete="family-name" style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;"></div></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:1.5rem;"><div><label for="email" style="display:block;margin-bottom:.5rem;">Email</label><input type="email" id="email" name="email" required="required" autocomplete="email" style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;"></div><div><label for="phone" style="display:block;margin-bottom:.5rem;">Phone number</label><input type="tel" id="phone" name="phone" autocomplete="tel" style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;"></div></div>
+<div><label for="topic" style="display:block;margin-bottom:.5rem;">Choose a topic</label><select id="topic" name="topic" required="required" style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;"><option value="" selected="selected" disabled="disabled">Select one...</option><option>Vehicle sourcing</option><option>Wholesale distribution</option><option>Transaction coordination</option><option>New partnership</option><option>Something else</option></select></div>
+<fieldset style="border:0;margin:0;padding:0;"><legend style="margin-bottom:1rem;padding:0;">Which best describes you?</legend><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));gap:.875rem 1.5rem;"><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Dealership" defaultChecked="defaultChecked" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Dealership</label><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Motor trader" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Motor trader</label><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Wholesale buyer" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Wholesale buyer</label><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Fleet manager" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Fleet manager</label><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Industry partner" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Industry partner</label><label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;"><input type="radio" name="role" value="Other" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">Other</label></div></fieldset>
+<div><label for="message" style="display:block;margin-bottom:.5rem;">Message</label><textarea id="message" name="message" required="required" rows="6" placeholder="Type your message..." style="width:100%;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;min-height:2.75rem;background:#fff;color:#0c0a01;font:inherit;min-height:11rem;resize:vertical;"></textarea></div>
+<label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:clamp(.75rem,.6rem + .4vw,1rem);"><input type="checkbox" name="terms" value="accepted" required="required" style="width:1.125rem;height:1.125rem;accent-color:#1b4f72;margin:0;">I accept the Terms</label>
+<sc-if value="{{ cfErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:0;">Something went wrong. Call 0452 583 889 or email info@veloramotorco.com.au.</p></sc-if>
+<div><button type="submit" style="border:1px solid #1b4f72;background:#1b4f72;color:#fff;font:inherit;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;cursor:pointer;" style-hover="background:#153f5b;border-color:#153f5b;">{{ cfBtn }}</button></div>
+</form></sc-if><sc-if value="{{ cfDone }}" hint-placeholder-val="{{ false }}"><div role="status" style="border:1px solid rgba(12,10,1,.15);border-radius:8px;padding:2rem;"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Thanks — enquiry received</h3><p style="margin:0 0 0;text-wrap:pretty;">We reply to every enquiry within one business day.</p></div></sc-if></div>
+  </div>
+</section>
+
+<section data-screen-label="Account Management" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="max-width:48rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);"><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">A real person handles your account</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">No call centers. No runaround. You get a dedicated contact who knows the trade and knows your stock needs.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><div style="display:grid;"><img src="assets/images/home-testimonial-section-0.jpg" alt="Direct line" style="grid-area:1/1;width:100%;border-radius:8px;object-fit:cover;transition:opacity .3s;opacity:{{ b0Img }};"><img src="assets/images/home-benefits-section-0.jpg" alt="Market knowledge" style="grid-area:1/1;width:100%;border-radius:8px;object-fit:cover;transition:opacity .3s;opacity:{{ b1Img }};"><img src="assets/images/home-benefits-section-2.jpg" alt="Fast decisions" style="grid-area:1/1;width:100%;border-radius:8px;object-fit:cover;transition:opacity .3s;opacity:{{ b2Img }};"></div><div style="display:flex;flex-direction:column;"><button onClick="{{ b0Go }}" style="display:block;text-align:left;background:none;border:0;border-left:1px solid {{ b0Ul }};padding:1rem 0 1rem clamp(1.5rem,1rem + 1vw,2rem);color:#fff;transition:opacity .3s;opacity:{{ b0Op }};"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Direct line</h3><p style="margin:0 0 0;text-wrap:pretty;">You get a direct phone number and email for your account manager. No waiting on hold.</p></button><button onClick="{{ b1Go }}" style="display:block;text-align:left;background:none;border:0;border-left:1px solid {{ b1Ul }};padding:1rem 0 1rem clamp(1.5rem,1rem + 1vw,2rem);color:#fff;transition:opacity .3s;opacity:{{ b1Op }};"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Market knowledge</h3><p style="margin:0 0 0;text-wrap:pretty;">Your account manager knows what is moving in the wholesale market and what is not.</p></button><button onClick="{{ b2Go }}" style="display:block;text-align:left;background:none;border:0;border-left:1px solid {{ b2Ul }};padding:1rem 0 1rem clamp(1.5rem,1rem + 1vw,2rem);color:#fff;transition:opacity .3s;opacity:{{ b2Op }};"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Fast decisions</h3><p style="margin:0 0 0;text-wrap:pretty;">We give you quick answers on availability and price. You can make a call and move.</p></button></div></div>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="FAQ" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:3rem 5rem;">
+    <div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">FAQs</h2>
+      <p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0;">Straight answers for dealers and traders who need stock without the runaround.</p>
+      <div style="margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="contact-us/" style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Contact</a></div>
+    </div>
+    <div style="display:grid;align-items:start;gap:1rem;">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:0 clamp(1.25rem,1rem + .5vw,1.5rem);">
+          <button onClick="{{ f.toggle }}" style="display:flex;width:100%;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,.8rem + .5vw,1.25rem) 0;background:none;border:0;color:#fff;text-align:left;font-size:clamp(1rem,.9rem + .35vw,1.25rem);font-weight:700;">{{ f.q }}<img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/add.svg" alt="" style="flex-shrink:0;width:2rem;height:2rem;filter:invert(1);transition:transform .3s;transform:rotate({{ f.rot }}deg);"></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding-bottom:clamp(1rem,.8rem + .5vw,1.5rem);">{{ f.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:48rem;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 auto clamp(1.25rem,1rem + .5vw,1.5rem);max-width:30rem;text-wrap:balance;">Need stock let's talk</h2>
+    <p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0;">Tell us what your lot needs and we will start the hunt today</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);">
+      <a href="contact-us/" style="display:inline-flex;align-items:center;border:1px solid #fff;background:#fff;color:#0c0a01;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:#dadad8;border-color:#dadad8;color:#0c0a01;">Enquire</a>
+      <a href="services/" style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+    <div style="max-width:48rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Contact</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Contact us</h2>
+      <p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0;">Reach out for wholesale vehicle enquiries and stock requirements</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:3rem;">
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/mail.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Email</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Send us your stock list or ask a question</p><a href="mailto:info@veloramotorco.com.au" style="text-decoration:underline;">info@veloramotorco.com.au</a></div>
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/call.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Phone</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Call us Monday to Friday, 8am to 5pm, for a quick answer</p><a href="tel:+61452583889" style="text-decoration:underline;">0452 583 889</a></div>
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/location_on.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Office</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Based in Five Dock, serving dealers across NSW</p><a href="https://maps.google.com/?q=255+Parramatta+Rd+Five+Dock+NSW+2046" style="text-decoration:underline;">255 Parramatta Rd, Five Dock NSW 2046</a></div>
+    </div>
+  </div>
+</section>
+
+<footer id="newsletter" data-screen-label="Footer" style="padding:clamp(3rem,2rem + 3vw,5rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1rem,.9rem + .35vw,1.25rem);font-weight:600;margin:0;">Join our newsletter</h2>
+        <p style="margin:0;">Get the latest stock lists and market moves monthly.</p>
+      </div>
+      <div style="width:100%;max-width:35rem;flex:0 1 25rem;">
+        <sc-if value="{{ nlShowForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ nlSubmit }}" style="display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:1rem;margin-bottom:.75rem;">
+            <input type="email" required="required" placeholder="Enter your email" aria-label="Email" value="{{ nlEmail }}" onChange="{{ nlChange }}" style="min-width:0;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;font:inherit;color:#0c0a01;background:transparent;">
+            <button type="submit" style="border:1px solid rgba(12,10,1,.15);background:transparent;color:#0c0a01;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;" style-hover="background:rgba(12,10,1,.05);">{{ nlBtn }}</button>
+          </form>
+        </sc-if>
+        <p style="font-size:clamp(.625rem,.55rem + .2vw,.75rem);margin:0;">{{ nlNote }}</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));align-items:start;gap:2.5rem 2rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <a href="./" aria-label="Velora Motor Co home"><img src="assets/logo-light.svg" alt="Velora Motor Co logo"></a>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Company</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="about-us/" style="text-decoration:none;">About Us</a></li>
+          <li style="padding:.5rem 0;"><a href="services/" style="text-decoration:none;">Services</a></li>
+          <li style="padding:.5rem 0;"><a href="contact-us/" style="text-decoration:none;">Contact Us</a></li>
+          <li style="padding:.5rem 0;"><a href="./" style="text-decoration:none;">Home</a></li>
+          <li style="padding:.5rem 0;"><a href="./#faq" style="text-decoration:none;">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Services</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="services/vehicle-sourcing/" style="text-decoration:none;">Vehicle Sourcing</a></li>
+          <li style="padding:.5rem 0;"><a href="services/wholesale-distribution/" style="text-decoration:none;">Wholesale Distribution</a></li>
+          <li style="padding:.5rem 0;"><a href="services/transaction-coordination/" style="text-decoration:none;">Transaction Coordination</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Contact</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="tel:+61452583889" style="text-decoration:none;">0452 583 889</a></li>
+          <li style="padding:.5rem 0;"><a href="mailto:info@veloramotorco.com.au" style="text-decoration:none;">info@veloramotorco.com.au</a></li>
+          <li style="padding:.5rem 0;">255 Parramatta Rd, Five Dock NSW 2046</li>
+          <li style="padding:.5rem 0;">Mon–Fri 8:00am–5:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div style="height:1px;width:100%;background:rgba(12,10,1,.15);"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding-top:clamp(1.5rem,1.25rem + .5vw,2rem);font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+      <p style="margin:0;">© 2026 Velora Motor Co Pty Ltd. All rights reserved.</p>
+      <p style="margin:0;">ABN 43 701 307 673</p>
+      <p style="margin:0;">Motor Dealer Licence: [to be supplied]</p>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, menu: false, dd: false, tab: 0, hov: null, ben: 0, slide: 0, faq: {}, nl: 'idle', email: '' };
+  benRef = React.createRef();
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth });
+    this.onS = () => {
+      const el = this.benRef.current; if (!el) return;
+      const mid = window.innerHeight / 2; let best = 0, bd = Infinity;
+      [...el.children].forEach((k, i) => { const r = k.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = i; } });
+      if (best !== this.state.ben) this.setState({ ben: best });
+    };
+    window.addEventListener('resize', this.onR);
+    window.addEventListener('scroll', this.onS, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); }
+  async sendContact(e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    this.setState({ cf: 'sending' });
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/info@veloramotorco.com.au', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...data, _subject: 'Website enquiry — ' + (data.topic || 'General'), _template: 'table' }) });
+      this.setState({ cf: r.ok ? 'done' : 'error' });
+    } catch (_) { this.setState({ cf: 'error' }); }
+  }
+  async subscribe(e) {
+    e.preventDefault();
+    this.setState({ nl: 'sending' });
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/info@veloramotorco.com.au', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ email: this.state.email, _subject: 'Newsletter signup — veloramotorco.com.au' }) });
+      this.setState({ nl: r.ok ? 'done' : 'error' });
+    } catch (_) { this.setState({ nl: 'error' }); }
+  }
+  renderVals() {
+    const s = this.state, w = s.w;
+    const navDesktop = w >= 992, desktop = w >= 768;
+    const per = w >= 992 ? 3 : w >= 768 ? 2 : 1;
+    const tItems = [
+      ['"Velora found three utes for us in a week. We sold two before the third even landed."', 'Jack Miller', 'Owner, Miller Motors'],
+    ];
+    const testimonials = [0, 1, 2, 3, 4, 5].map(i => ({ quote: tItems[0][0], name: tItems[0][1], role: tItems[0][2], img: `assets/images/home-testimonial-section-${i}.jpg` }));
+    const maxSlide = testimonials.length - per;
+    const slide = Math.min(s.slide, maxSlide);
+    const faqData = [["How fast do you respond?","We aim to reply to all enquiries within one business day. Urgent requests get priority. The market moves fast and so do we."],["What is the enquiry process?","You tell us what you need. We check our network and come back with options. Then we handle the details."],["How do we start a partnership?","Send us your dealer licence and a note about your stock needs. We will set up an account and get to work."],["Do you work with independent traders?","Yes. We work with dealerships, independent traders, and industry partners across Australia. If you buy wholesale, we can help."],["Can you source specific vehicles?","Yes. Give us the make, model, year, and budget. We will search our network and report back with what is available."]];
+    const v = {
+      navDesktop, navMobile: !navDesktop, menuShown: !navDesktop && s.menu,
+      toggleMenu: () => this.setState({ menu: !s.menu }), closeMenu: () => this.setState({ menu: false }),
+      dd: s.dd, ddRot: s.dd ? 180 : 0, ddOpen: () => this.setState({ dd: true }), ddClose: () => this.setState({ dd: false }),
+      logos: [0, 1, 2, 3, 4, 5, 6, 7].map(i => ({ src: `assets/svgs/navbar-${i % 2}.svg`, alt: `Partner logo ${i + 1}` })),
+      cardsDir: navDesktop ? 'row' : 'column', hovOff: () => this.setState({ hov: null }),
+      benDesktop: desktop, benMobile: !desktop, benRef: this.benRef,
+      benCols: desktop ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)', benPos: desktop ? 'sticky' : 'static', benMt: desktop ? '5rem' : '0', benH: desktop ? 'calc(100vh - 10rem)' : 'auto',
+      testimonials, cardBasis: 100 / per, trackX: -(slide * 100 / per) * (per / per), showArrows: desktop,
+      prev: () => this.setState({ slide: slide <= 0 ? maxSlide : slide - 1 }),
+      next: () => this.setState({ slide: slide >= maxSlide ? 0 : slide + 1 }),
+      dots: Array.from({ length: maxSlide + 1 }, (_, i) => ({ bg: i === slide ? '#fff' : 'rgba(255,255,255,.2)', go: () => this.setState({ slide: i }) })),
+      faqs: faqData.map(([q, a], i) => ({ q, a, open: !!s.faq[i], rot: s.faq[i] ? 45 : 0, toggle: () => this.setState({ faq: { ...s.faq, [i]: !s.faq[i] } }) })),
+      nlShowForm: s.nl !== 'done', nlEmail: s.email, nlChange: e => this.setState({ email: e.target.value }), nlSubmit: e => this.subscribe(e), cfShowForm: s.cf !== 'done', cfDone: s.cf === 'done', cfSubmit: e => this.sendContact(e), cfBtn: s.cf === 'sending' ? 'Sending…' : 'Submit', cfErr: s.cf === 'error',
+      nlBtn: s.nl === 'sending' ? 'Sending…' : 'Subscribe',
+      nlNote: s.nl === 'done' ? 'Thanks — you are on the list.' : s.nl === 'error' ? 'Something went wrong. Email info@veloramotorco.com.au instead.' : 'By subscribing you agree to receive stock updates from Velora Motor Co. Unsubscribe any time.',
+    };
+    [0, 1, 2].forEach(i => {
+      v['tab' + i] = () => this.setState({ tab: i }); v['tabOn' + i] = s.tab === i; v['tabOp' + i] = s.tab === i ? 1 : 0.25; v['tabImg' + i] = s.tab === i ? 1 : 0;
+      v['hov' + i] = () => navDesktop && this.setState({ hov: i }); v['grow' + i] = navDesktop && s.hov === i ? 2.33 : 1;
+    });
+    const ts = s.ts || {};
+    ['a', 'b', 'c', 'd'].forEach(k => { for (let i = 0; i < 6; i++) { const on = (ts[k] || 0) === i;
+      v[k + i + 'On'] = on; v[k + i + 'Op'] = on ? 1 : 0.25; v[k + i + 'Img'] = on ? 1 : 0; v[k + i + 'Ul'] = on ? 'currentColor' : 'transparent'; v[k + i + 'Bb'] = on ? 'transparent' : 'rgba(12,10,1,.15)';
+      v[k + i + 'Go'] = () => this.setState({ ts: { ...ts, [k]: i } }); } });
+    [0, 1, 2, 3].forEach(i => { v['benOp' + i] = s.ben === i ? 1 : 0; v['benY' + i] = s.ben === i ? 0 : (i < s.ben ? -100 : 100); });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

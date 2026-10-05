@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services — Vehicle sourcing, wholesale distribution & transaction coordination | Velora Motor Co</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-600.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url("assets/fonts/bricolage-grotesque-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-600.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@keyframes loop-horizontally{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Inter",sans-serif;font-size:clamp(.875rem,.75rem + .4vw,1.125rem);line-height:1.5;color:#0c0a01;background:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+a:hover{color:inherit}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+
+<section data-screen-label="Navbar" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;min-height:4.5rem;width:100%;background:#fff;padding:0 5%;color:#0c0a01;">
+  <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+    <a href="./" aria-label="Velora Motor Co home"><img src="assets/logo-light.svg" alt="Velora Motor Co logo"></a>
+    <sc-if value="{{ navDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex:1;align-items:center;justify-content:space-between;margin-left:1.5rem;">
+        <nav style="display:flex;align-items:center;">
+          <a href="about-us/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">About us</a>
+          <a href="services/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">Services</a>
+          <a href="services/vehicle-sourcing/" style="display:inline-block;padding:1.5rem 1rem;font-size:1rem;text-decoration:none;">Sourcing</a>
+          <div onMouseEnter="{{ ddOpen }}" onMouseLeave="{{ ddClose }}">
+            <p role="button" style="display:flex;align-items:center;gap:.5rem;margin:0;padding:1.5rem 1rem;font-size:1rem;white-space:nowrap;cursor:pointer;">More <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/keyboard_arrow_down.svg" alt="" style="width:24px;height:24px;transition:transform .3s;transform:rotate({{ ddRot }}deg);"></p>
+            <sc-if value="{{ dd }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;top:100%;left:0;width:100%;background:#fff;border-bottom:1px solid rgba(12,10,1,.15);padding:0 5%;">
+                <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 2rem;padding:2rem 0;">
+                  <a href="services/wholesale-distribution/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/vertical_distribute.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Wholesale distribution</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Move stock fast through our dealer network</span></span></a>
+                  <a href="services/transaction-coordination/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/transportation.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Transaction coordination</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">We handle the paperwork and logistics</span></span></a>
+                  <a href="services/vehicle-sourcing/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/auto_stories.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Vehicle sourcing</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Find the right vehicles across Australia</span></span></a>
+                  <a href="contact-us/" style="display:grid;grid-template-columns:max-content 1fr;align-items:start;gap:0 .75rem;padding:.5rem 0;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/today.svg" alt="" style="width:24px;height:24px;"><span style="display:flex;flex-direction:column;"><span style="font-weight:600;">Contact us</span><span style="font-size:clamp(.75rem,.6rem + .4vw,1rem);">Talk to our team today</span></span></a>
+                </div>
+                <div style="display:flex;justify-content:center;gap:.25rem;padding:.75rem 0;"><span>Looking for a new career?</span><a href="contact-us/" style="text-decoration:underline;">Get in touch</a></div>
+              </div>
+            </sc-if>
+          </div>
+        </nav>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <a href="#newsletter" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(12,10,1,.15);background:transparent;color:#0c0a01;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all .2s;" style-hover="background:rgba(12,10,1,.05);">Sign up</a>
+          <a href="contact-us/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid #1b4f72;background:#1b4f72;color:#fff;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;white-space:nowrap;transition:all .2s;" style-hover="background:#153f5b;border-color:#153f5b;color:#fff;">Contact</a>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ navMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:48px;height:48px;margin-right:-8px;background:none;border:0;gap:6px;">
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+        <span style="display:block;width:24px;height:2px;background:#0c0a01;"></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuShown }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;height:calc(100dvh - 4.5rem);overflow:auto;background:#fff;border-bottom:1px solid rgba(12,10,1,.15);padding:1rem 5% 2rem;display:flex;flex-direction:column;">
+      <a href="about-us/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">About us</a>
+      <a href="services/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Services</a>
+      <a href="services/vehicle-sourcing/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Vehicle sourcing</a>
+      <a href="services/wholesale-distribution/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Wholesale distribution</a>
+      <a href="services/transaction-coordination/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Transaction coordination</a>
+      <a href="contact-us/" style="padding:.75rem 0;font-size:1rem;text-decoration:none;">Contact us</a>
+      <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;">
+        <a href="#newsletter" onClick="{{ closeMenu }}" style="display:inline-flex;justify-content:center;border:1px solid rgba(12,10,1,.15);font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;">Sign up</a>
+        <a href="contact-us/" style="display:inline-flex;justify-content:center;border:1px solid #1b4f72;background:#1b4f72;color:#fff;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;">Contact</a>
+      </div>
+    </div>
+  </sc-if>
+</section>
+
+<section data-screen-label="Header" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="max-width:48rem;margin:0 auto;text-align:center;"><h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.4rem,1.2rem + 3.6vw,4.2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Wholesale vehicle solutions</h1><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">Reliable vehicle sourcing and distribution built for dealerships and motor traders across Australia</p></div>
+  </div>
+</section>
+
+<section data-screen-label="Services" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#f2f2f2;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="max-width:48rem;margin:0 auto clamp(3rem,2rem + 3vw,5rem);text-align:center;"><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Services</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Three ways we keep your lot full</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">We handle the hunt, the haul, and the paperwork. You handle the sale.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:3rem clamp(2rem,1rem + 2vw,3rem);"><a href="services/vehicle-sourcing/" style="display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/inventory.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Vehicle sourcing across every state and territory</h3><p style="margin:0 0 0;text-wrap:pretty;">We find the used stock your customers want, from utes to sedans.</p></a><a href="services/wholesale-distribution/" style="display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/warehouse.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Wholesale distribution through established dealer networks</h3><p style="margin:0 0 0;text-wrap:pretty;">We move vehicles fast to the right buyers at the right price.</p></a><a href="services/transaction-coordination/" style="display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/details.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Transaction coordination from first call to final handover</h3><p style="margin:0 0 0;text-wrap:pretty;">We manage the details so deals close clean and on time.</p></a></div><div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem;margin-top:clamp(3rem,2rem + 3vw,5rem);"><a href="services/vehicle-sourcing/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(12,10,1,.15);color:#0c0a01;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(12,10,1,.05);color:#0c0a01;">Explore</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#0c0a01;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;"></a></div>
+  </div>
+</section>
+
+<section data-screen-label="Feature — Sourcing" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><img src="assets/images/home-features-list-section-0.jpg" alt="Vehicle sourcing" style="width:100%;border-radius:8px;object-fit:cover;"><div><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Sourcing</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">The right vehicle is out there. We find it.</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:pretty;">Velora Motor Co works dealer to dealer. We tap auctions, trade-ins, and private networks to locate quality used vehicles that match your stock list. No guesswork. Just the metal you need.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 2rem;padding:.5rem 0;"><img src="assets/svgs/navbar-0.svg" alt="Partner logo 1" style="max-height:3rem;"><img src="assets/svgs/navbar-1.svg" alt="Partner logo 2" style="max-height:3rem;"><img src="assets/svgs/navbar-0.svg" alt="Partner logo 3" style="max-height:3rem;"><img src="assets/svgs/navbar-1.svg" alt="Partner logo 4" style="max-height:3rem;"></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="services/vehicle-sourcing/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Learn</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div></div>
+  </div>
+</section>
+
+<section data-screen-label="Feature — Distribution" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><img src="assets/images/home-features-list-section-1.jpg" alt="Wholesale distribution" style="width:100%;border-radius:8px;object-fit:cover;"><div><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Distribution</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">We move stock fast through dealer networks</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:pretty;">Velora Motor Co runs a tight distribution chain. We deliver bulk vehicles to trade partners across Australia without delay or damage.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem 2rem;padding:.5rem 0;"><img src="assets/svgs/navbar-0.svg" alt="Partner logo 1" style="max-height:3rem;"><img src="assets/svgs/navbar-1.svg" alt="Partner logo 2" style="max-height:3rem;"><img src="assets/svgs/navbar-0.svg" alt="Partner logo 3" style="max-height:3rem;"><img src="assets/svgs/navbar-1.svg" alt="Partner logo 4" style="max-height:3rem;"></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="services/wholesale-distribution/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Learn</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div></div>
+  </div>
+</section>
+
+<section data-screen-label="Feature — Coordination" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><div><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Coordination</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">We handle the details until the deal closes</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:pretty;">From first call to final handover, we manage purchases, paperwork, payments, and logistics. You get a clean deal every time.</p><ul style="list-style:none;margin:0;padding:.5rem 0;display:grid;gap:1rem;"><li style="display:flex;align-items:flex-start;gap:1rem;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/payments.svg" alt="" style="width:24px;height:24px;flex:none;filter:invert(1);"><span>Purchase agreements</span></li><li style="display:flex;align-items:flex-start;gap:1rem;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/payments.svg" alt="" style="width:24px;height:24px;flex:none;filter:invert(1);"><span>Payment processing</span></li><li style="display:flex;align-items:flex-start;gap:1rem;"><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/transportation.svg" alt="" style="width:24px;height:24px;flex:none;filter:invert(1);"><span>Transport logistics</span></li></ul><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="services/transaction-coordination/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Learn</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div><img src="assets/images/home-features-list-section-2.jpg" alt="Transaction coordination" style="width:100%;border-radius:8px;object-fit:cover;"></div>
+  </div>
+</section>
+
+<section data-screen-label="Features List" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));align-items:center;gap:3rem 5rem;"><img src="assets/images/home-features-list-section-3.jpg" alt="Value-added services" style="width:100%;border-radius:8px;object-fit:cover;"><div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:2rem 1.5rem;padding:.5rem 0;"><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/report.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(.75rem,.6rem + .3vw,1rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(1rem,.6rem + 1.2vw,1.6rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Condition reporting</h3><p style="margin:0 0 0;text-wrap:pretty;">Honest vehicle assessments before you commit to any stock purchase</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/monitoring.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(.75rem,.6rem + .3vw,1rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(1rem,.6rem + 1.2vw,1.6rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Inspection coordination</h3><p style="margin:0 0 0;text-wrap:pretty;">We arrange independent inspections so you know exactly what you are buying</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/transportation.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(.75rem,.6rem + .3vw,1rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(1rem,.6rem + 1.2vw,1.6rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Transport arrangement</h3><p style="margin:0 0 0;text-wrap:pretty;">Reliable vehicle delivery across every state and territory in Australia</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/contacts.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(.75rem,.6rem + .3vw,1rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(1rem,.6rem + 1.2vw,1.6rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);text-wrap:balance;">Account management</h3><p style="margin:0 0 0;text-wrap:pretty;">A dedicated contact who knows your stock list and your buyers</p></div></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="contact-us/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Enquire</a><a href="about-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">About <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div></div>
+  </div>
+</section>
+
+<section data-screen-label="Benefits" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));align-items:start;gap:3rem 5rem;"><div><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Benefits</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Why dealers trade with Velora Motor Co</h2><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">We built our name on reliability and straight talk. Dealers come back because we deliver the right stock at the right price.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="about-us/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Learn</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:3rem 2rem;grid-column:span 1;"><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/storage.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Reliable supply you can count on</h3><p style="margin:0 0 0;text-wrap:pretty;">We source vehicles consistently so your lot never sits empty.</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/design_services.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Efficient service from start to finish</h3><p style="margin:0 0 0;text-wrap:pretty;">We move fast on sourcing, paperwork, and delivery.</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/shop.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Established networks across the country</h3><p style="margin:0 0 0;text-wrap:pretty;">Our dealer relationships open doors to stock you cannot find alone.</p></div><div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/margin.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);filter:invert(1);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);text-wrap:balance;">Competitive wholesale pricing</h3><p style="margin:0 0 0;text-wrap:pretty;">We negotiate hard so your margins stay healthy.</p></div></div></div>
+  </div>
+</section>
+
+<section data-screen-label="Stats" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:80rem;margin:0 auto;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1.25rem 5rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);"><div><p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Numbers</p><h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 0;text-wrap:balance;">The work behind the wheels</h2></div><div><p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0 0 0;text-wrap:pretty;">We measure our success by the stock we move and the dealers we serve. The numbers tell a simple story. We find vehicles and we deliver them.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);"><a href="about-us/" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Learn</a><a href="contact-us/" style="display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:500;text-decoration:none;">Enquire <img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/chevron_right.svg" alt="" style="width:24px;height:24px;filter:invert(1);"></a></div></div></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:2rem;"><div style="display:flex;flex-direction:column;justify-content:center;text-align:center;padding:2rem;border:1px solid rgba(255,255,255,.2);border-radius:8px;"><p style="margin:0 0 .5rem;font-size:clamp(3.5rem,2.5rem + 2.5vw,5rem);line-height:1.3;font-weight:700;">200+</p><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(.9rem,.7rem + .6vw,1.3rem);margin:0 0 0;text-wrap:balance;">Vehicles sourced monthly</h3></div><img src="assets/images/home-benefits-section-4.jpg" alt="" style="width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;"><div style="display:flex;flex-direction:column;justify-content:center;text-align:center;padding:2rem;border:1px solid rgba(255,255,255,.2);border-radius:8px;"><p style="margin:0 0 .5rem;font-size:clamp(3.5rem,2.5rem + 2.5vw,5rem);line-height:1.3;font-weight:700;">300+</p><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(.9rem,.7rem + .6vw,1.3rem);margin:0 0 0;text-wrap:balance;">Dealer partners served</h3></div><div style="display:flex;flex-direction:column;justify-content:center;text-align:center;padding:2rem;border:1px solid rgba(255,255,255,.2);border-radius:8px;"><p style="margin:0 0 .5rem;font-size:clamp(3.5rem,2.5rem + 2.5vw,5rem);line-height:1.3;font-weight:700;">48h</p><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.1;letter-spacing:-.01em;font-size:clamp(.9rem,.7rem + .6vw,1.3rem);margin:0 0 0;text-wrap:balance;">Average sourcing turnaround</h3></div><img src="assets/images/home-benefits-section-5.jpg" alt="" style="width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;"><img src="assets/images/home-benefits-section-6.jpg" alt="" style="width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;border-radius:8px;"></div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#0c0a01;color:#fff;">
+  <div style="max-width:48rem;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 auto clamp(1.25rem,1rem + .5vw,1.5rem);max-width:30rem;text-wrap:balance;">Need stock let's talk</h2>
+    <p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0;">Tell us what your lot needs and we will start the hunt today</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:clamp(1.5rem,1.25rem + .5vw,2rem);">
+      <a href="contact-us/" style="display:inline-flex;align-items:center;border:1px solid #fff;background:#fff;color:#0c0a01;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:#dadad8;border-color:#dadad8;color:#0c0a01;">Enquire</a>
+      <a href="services/" style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.15);color:#fff;font-weight:500;padding:.625rem 1.5rem;border-radius:6px;text-decoration:none;transition:all .2s;" style-hover="background:rgba(255,255,255,.1);color:#fff;">Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="padding:clamp(4rem,2rem + 6vw,7rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+    <div style="max-width:48rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <p style="font-weight:600;text-transform:uppercase;margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Contact</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(2.2rem,1.6rem + 1.6vw,3rem);margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Contact us</h2>
+      <p style="font-size:clamp(1rem,.9rem + .35vw,1.25rem);margin:0;">Reach out for wholesale vehicle enquiries and stock requirements</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:3rem;">
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/mail.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Email</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Send us your stock list or ask a question</p><a href="mailto:info@veloramotorco.com.au" style="text-decoration:underline;">info@veloramotorco.com.au</a></div>
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/call.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Phone</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Call us Monday to Friday, 8am to 5pm, for a quick answer</p><a href="tel:+61452583889" style="text-decoration:underline;">0452 583 889</a></div>
+      <div><img src="https://cdn.jsdelivr.net/npm/@material-symbols/svg-500@latest/rounded/location_on.svg" alt="" style="width:3rem;height:3rem;margin-bottom:clamp(1.25rem,1rem + .5vw,1.5rem);"><h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:-.01em;font-size:clamp(1.2rem,.6rem + 1.8vw,2rem);margin:0 0 clamp(.75rem,.6rem + .3vw,1rem);">Office</h3><p style="margin:0 0 clamp(1.25rem,1rem + .5vw,1.5rem);">Based in Five Dock, serving dealers across NSW</p><a href="https://maps.google.com/?q=255+Parramatta+Rd+Five+Dock+NSW+2046" style="text-decoration:underline;">255 Parramatta Rd, Five Dock NSW 2046</a></div>
+    </div>
+  </div>
+</section>
+
+<footer id="newsletter" data-screen-label="Footer" style="padding:clamp(3rem,2rem + 3vw,5rem) 5%;background:#fff;color:#0c0a01;">
+  <div style="max-width:80rem;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1rem,.9rem + .35vw,1.25rem);font-weight:600;margin:0;">Join our newsletter</h2>
+        <p style="margin:0;">Get the latest stock lists and market moves monthly.</p>
+      </div>
+      <div style="width:100%;max-width:35rem;flex:0 1 25rem;">
+        <sc-if value="{{ nlShowForm }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ nlSubmit }}" style="display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:1rem;margin-bottom:.75rem;">
+            <input type="email" required="required" placeholder="Enter your email" aria-label="Email" value="{{ nlEmail }}" onChange="{{ nlChange }}" style="min-width:0;border:1px solid rgba(12,10,1,.15);border-radius:6px;padding:.5rem .75rem;font:inherit;color:#0c0a01;background:transparent;">
+            <button type="submit" style="border:1px solid rgba(12,10,1,.15);background:transparent;color:#0c0a01;font-weight:500;padding:.5rem 1.25rem;border-radius:6px;" style-hover="background:rgba(12,10,1,.05);">{{ nlBtn }}</button>
+          </form>
+        </sc-if>
+        <p style="font-size:clamp(.625rem,.55rem + .2vw,.75rem);margin:0;">{{ nlNote }}</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));align-items:start;gap:2.5rem 2rem;margin-bottom:clamp(3rem,2rem + 3vw,5rem);">
+      <a href="./" aria-label="Velora Motor Co home"><img src="assets/logo-light.svg" alt="Velora Motor Co logo"></a>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Company</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="about-us/" style="text-decoration:none;">About Us</a></li>
+          <li style="padding:.5rem 0;"><a href="services/" style="text-decoration:none;">Services</a></li>
+          <li style="padding:.5rem 0;"><a href="contact-us/" style="text-decoration:none;">Contact Us</a></li>
+          <li style="padding:.5rem 0;"><a href="./" style="text-decoration:none;">Home</a></li>
+          <li style="padding:.5rem 0;"><a href="./#faq" style="text-decoration:none;">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Services</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="services/vehicle-sourcing/" style="text-decoration:none;">Vehicle Sourcing</a></li>
+          <li style="padding:.5rem 0;"><a href="services/wholesale-distribution/" style="text-decoration:none;">Wholesale Distribution</a></li>
+          <li style="padding:.5rem 0;"><a href="services/transaction-coordination/" style="text-decoration:none;">Transaction Coordination</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:inherit;font-weight:600;margin:0 0 1rem;">Contact</h2>
+        <ul style="list-style:none;margin:0;padding:0;font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+          <li style="padding:.5rem 0;"><a href="tel:+61452583889" style="text-decoration:none;">0452 583 889</a></li>
+          <li style="padding:.5rem 0;"><a href="mailto:info@veloramotorco.com.au" style="text-decoration:none;">info@veloramotorco.com.au</a></li>
+          <li style="padding:.5rem 0;">255 Parramatta Rd, Five Dock NSW 2046</li>
+          <li style="padding:.5rem 0;">Mon–Fri 8:00am–5:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div style="height:1px;width:100%;background:rgba(12,10,1,.15);"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;padding-top:clamp(1.5rem,1.25rem + .5vw,2rem);font-size:clamp(.75rem,.6rem + .4vw,1rem);">
+      <p style="margin:0;">© 2026 Velora Motor Co Pty Ltd. All rights reserved.</p>
+      <p style="margin:0;">ABN 43 701 307 673</p>
+      <p style="margin:0;">Motor Dealer Licence: [to be supplied]</p>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, menu: false, dd: false, tab: 0, hov: null, ben: 0, slide: 0, faq: {}, nl: 'idle', email: '' };
+  benRef = React.createRef();
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth });
+    this.onS = () => {
+      const el = this.benRef.current; if (!el) return;
+      const mid = window.innerHeight / 2; let best = 0, bd = Infinity;
+      [...el.children].forEach((k, i) => { const r = k.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = i; } });
+      if (best !== this.state.ben) this.setState({ ben: best });
+    };
+    window.addEventListener('resize', this.onR);
+    window.addEventListener('scroll', this.onS, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); window.removeEventListener('scroll', this.onS); }
+  async sendContact(e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    this.setState({ cf: 'sending' });
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/info@veloramotorco.com.au', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...data, _subject: 'Website enquiry — ' + (data.topic || 'General'), _template: 'table' }) });
+      this.setState({ cf: r.ok ? 'done' : 'error' });
+    } catch (_) { this.setState({ cf: 'error' }); }
+  }
+  async subscribe(e) {
+    e.preventDefault();
+    this.setState({ nl: 'sending' });
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/info@veloramotorco.com.au', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ email: this.state.email, _subject: 'Newsletter signup — veloramotorco.com.au' }) });
+      this.setState({ nl: r.ok ? 'done' : 'error' });
+    } catch (_) { this.setState({ nl: 'error' }); }
+  }
+  renderVals() {
+    const s = this.state, w = s.w;
+    const navDesktop = w >= 992, desktop = w >= 768;
+    const per = w >= 992 ? 3 : w >= 768 ? 2 : 1;
+    const tItems = [
+      ['"Velora found three utes for us in a week. We sold two before the third even landed."', 'Jack Miller', 'Owner, Miller Motors'],
+    ];
+    const testimonials = [0, 1, 2, 3, 4, 5].map(i => ({ quote: tItems[0][0], name: tItems[0][1], role: tItems[0][2], img: `assets/images/home-testimonial-section-${i}.jpg` }));
+    const maxSlide = testimonials.length - per;
+    const slide = Math.min(s.slide, maxSlide);
+    const faqData = [];
+    const v = {
+      navDesktop, navMobile: !navDesktop, menuShown: !navDesktop && s.menu,
+      toggleMenu: () => this.setState({ menu: !s.menu }), closeMenu: () => this.setState({ menu: false }),
+      dd: s.dd, ddRot: s.dd ? 180 : 0, ddOpen: () => this.setState({ dd: true }), ddClose: () => this.setState({ dd: false }),
+      logos: [0, 1, 2, 3, 4, 5, 6, 7].map(i => ({ src: `assets/svgs/navbar-${i % 2}.svg`, alt: `Partner logo ${i + 1}` })),
+      cardsDir: navDesktop ? 'row' : 'column', hovOff: () => this.setState({ hov: null }),
+      benDesktop: desktop, benMobile: !desktop, benRef: this.benRef,
+      benCols: desktop ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)', benPos: desktop ? 'sticky' : 'static', benMt: desktop ? '5rem' : '0', benH: desktop ? 'calc(100vh - 10rem)' : 'auto',
+      testimonials, cardBasis: 100 / per, trackX: -(slide * 100 / per) * (per / per), showArrows: desktop,
+      prev: () => this.setState({ slide: slide <= 0 ? maxSlide : slide - 1 }),
+      next: () => this.setState({ slide: slide >= maxSlide ? 0 : slide + 1 }),
+      dots: Array.from({ length: maxSlide + 1 }, (_, i) => ({ bg: i === slide ? '#fff' : 'rgba(255,255,255,.2)', go: () => this.setState({ slide: i }) })),
+      faqs: faqData.map(([q, a], i) => ({ q, a, open: !!s.faq[i], rot: s.faq[i] ? 45 : 0, toggle: () => this.setState({ faq: { ...s.faq, [i]: !s.faq[i] } }) })),
+      nlShowForm: s.nl !== 'done', nlEmail: s.email, nlChange: e => this.setState({ email: e.target.value }), nlSubmit: e => this.subscribe(e), cfShowForm: s.cf !== 'done', cfDone: s.cf === 'done', cfSubmit: e => this.sendContact(e), cfBtn: s.cf === 'sending' ? 'Sending…' : 'Submit', cfErr: s.cf === 'error',
+      nlBtn: s.nl === 'sending' ? 'Sending…' : 'Subscribe',
+      nlNote: s.nl === 'done' ? 'Thanks — you are on the list.' : s.nl === 'error' ? 'Something went wrong. Email info@veloramotorco.com.au instead.' : 'By subscribing you agree to receive stock updates from Velora Motor Co. Unsubscribe any time.',
+    };
+    [0, 1, 2].forEach(i => {
+      v['tab' + i] = () => this.setState({ tab: i }); v['tabOn' + i] = s.tab === i; v['tabOp' + i] = s.tab === i ? 1 : 0.25; v['tabImg' + i] = s.tab === i ? 1 : 0;
+      v['hov' + i] = () => navDesktop && this.setState({ hov: i }); v['grow' + i] = navDesktop && s.hov === i ? 2.33 : 1;
+    });
+    [0, 1, 2, 3].forEach(i => { v['benOp' + i] = s.ben === i ? 1 : 0; v['benY' + i] = s.ben === i ? 0 : (i < s.ben ? -100 : 100); });
+    return v;
+  }
+}
+</script>
+</body>
+</html>

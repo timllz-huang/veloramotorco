@@ -1,0 +1,31 @@
+{
+  "baseUrl": "https://veloramotorco.com.au",
+  "name": "Velora Motor Co",
+  "legalName": "Velora Motor Co Pty Ltd",
+  "description": "B2B used vehicle wholesale for Australian dealerships and motor traders — vehicle sourcing, wholesale distribution and transaction coordination.",
+  "telephone": "+61452583889",
+  "telephoneDisplay": "0452 583 889",
+  "email": "info@veloramotorco.com.au",
+  "formMailTo": "info@veloramotorco.com.au",
+  "address": { "streetAddress": "255 Parramatta Rd", "addressLocality": "Five Dock", "addressRegion": "NSW", "postalCode": "2046", "addressCountry": "AU" },
+  "areasServed": ["Australia"],
+  "openingHours": ["Mo-Fr 08:00-17:00"],
+  "licence": "",
+  "abn": "43 701 307 673",
+  "sameAs": [],
+  "ogImage": "assets/images/home-hero-header-section.jpg",
+  "services": [
+    { "name": "Vehicle sourcing", "path": "services/vehicle-sourcing/" },
+    { "name": "Wholesale distribution", "path": "services/wholesale-distribution/" },
+    { "name": "Transaction coordination", "path": "services/transaction-coordination/" }
+  ],
+  "pages": {
+    "Home.dc.html": { "out": "", "title": "Velora Motor Co — B2B used vehicle wholesale for Australian dealerships", "description": "Velora Motor Co sources and distributes used vehicles for dealerships and motor traders across Australia. Trade only." },
+    "about-us.dc.html": { "out": "about-us/", "title": "About Velora Motor Co — B2B used vehicle wholesale", "description": "A Sydney-based wholesale partner built on dealer relationships, sourcing and distributing used vehicles for the trade across Australia." },
+    "services.dc.html": { "out": "services/", "title": "Services — Vehicle sourcing, wholesale distribution & transaction coordination | Velora Motor Co", "description": "Vehicle sourcing, wholesale distribution and transaction coordination for Australian dealerships and motor traders." },
+    "vehicle-sourcing.dc.html": { "out": "services/vehicle-sourcing/", "title": "Vehicle Sourcing for Dealerships | Velora Motor Co", "description": "We find the right used vehicles across Australia for dealerships and motor traders who need reliable stock." },
+    "wholesale-distribution.dc.html": { "out": "services/wholesale-distribution/", "title": "Wholesale Used Vehicle Distribution for Dealers | Velora Motor Co", "description": "Bulk used vehicle stock supplied to dealerships and motor traders across Australia with speed and reliability." },
+    "transaction-coordination.dc.html": { "out": "services/transaction-coordination/", "title": "Transaction Coordination for Vehicle Wholesale | Velora Motor Co", "description": "Paperwork, payments, title transfer and transport handled from handshake to handover for dealer vehicle deals." },
+    "contact-us.dc.html": { "out": "contact-us/", "title": "Contact Velora Motor Co — Wholesale vehicle enquiries", "description": "Talk to Velora Motor Co about your stock. Call 0452 583 889 or send an enquiry — we reply within one business day." }
+  }
+}
